@@ -1,19 +1,43 @@
 .form-container {
-  margin-top: 50px;
-  max-width: 350px;
+    margin-top: 50px;
+    max-width: 350px;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .error {
-  background-color: #d84f4f;
-  padding: 10px;
+    background-color: #d84f4f;
+    padding: 10px;
 }
 
 .success {
-  background-color: #73cc73;
-  padding: 10px;
+    background-color: #73cc73;
+    padding: 10px;
+}
+
+.e-custom {
+    border-radius: 0;
+    height: 80px;
+    width: 80px;
+    margin-right: 50px;
+}
+
+.e-custom:hover,
+.e-custom:focus,
+.e-custom:active {
+    background-color: #bbb5ad;
+    color: #fff;
+}
+
+.outer-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.outer-div>span {
+    font-size: 12px;
 }

@@ -1,19 +1,284 @@
-<mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
-<mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar>
 <div class="form-container">
+    <!--Hello-->
+    <form (submit)="createAppointment()">
+        <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input [(ngModel)]="firstname" name="firstname" matInput placeholder="First Name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <input [(ngModel)]="lastname" name="lastname" matInput placeholder="Last Name">
+        </mat-form-field>
 
-  <form (submit)="createAppointment()">
-    <mat-form-field>
-      <input [(ngModel)]="appointmentDate" name="appointmentDate" matInput [matDatepicker]="picker" placeholder="Choose a date">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field>
-      <input [(ngModel)]="name" name="name" matInput placeholder="Name">
-    </mat-form-field>
-    <mat-form-field>
-      <input [(ngModel)]="email" name="email" matInput placeholder="Email" type="email">
-    </mat-form-field>
-    <button mat-raised-button color="primary">Make Appointment</button>
-  </form>
+
+
+
+
+
+
+        <mat-form-field>
+            <input [(ngModel)]="dateofbirth" name="dateofbirth" matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker">
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker>
+            </mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+
+            <mat-label>Blood Group</mat-label>
+            <mat-select>
+                <mat-option value="Ap">A+</mat-option>
+                <mat-option value="Bp">B+</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div>
+            <h3>Marital Status
+            </h3>
+            <mat-button-toggle-group [(ngModel)]="Mstatus" name="Mstatus" aria-label="Favorite Color" #tt='matButtonToggleGroup' appearance="legacy">
+                <mat-button-toggle class="e-custom" value="Bachelor">
+                    <div class="outer-div">
+                        <i class="fa fa-circle fa-2x" ria-hidden="true"></i>
+                        <span>Bachelor</span>
+                    </div>
+                </mat-button-toggle>
+                <mat-button-toggle class="e-custom" value="Married">
+                    <div class="outer-div">
+                        <i class="fa fa-circle-o fa-2x" ria-hidden="true"></i>
+                        <span>Married</span>
+                    </div>
+                </mat-button-toggle>
+                <mat-button-toggle class="e-custom" value="Divorced">
+                    <div class="outer-div">
+                        <i class="fa fa-stop-circle fa-2x" ria-hidden="true"></i>
+                        <span>Divorced</span>
+                    </div>
+                </mat-button-toggle>
+                <mat-button-toggle class="e-custom" value="Widow">
+                    <div class="outer-div">
+                        <i class="fa fa-minus-circle fa-2x" ria-hidden="true"></i>
+                        <span>Widow</span>
+                    </div>
+                </mat-button-toggle>
+            </mat-button-toggle-group>
+            {{tt.value}}
+
+        </div>
+
+        <!--
+        <div>
+            <h3>Marital Stat
+            </h3>
+            <mat-button-toggle-group [(ngModel)]="Mstatus" name="Mstatus" aria-label="Favorite Color" #tt='matButtonToggleGroup' appearance="legacy">
+                <mat-button-toggle value="B">Bachelor</mat-button-toggle>
+                <mat-button-toggle value="M">Married</mat-button-toggle>
+            </mat-button-toggle-group>
+            {{tt.value}}
+        </div>
+        -->
+        <div *ngFor="let i of align;let index1 = index;">
+
+            <mat-button-toggle-group [name]="'name'+index1" [(ngModel)]="i.disp" [id]="'name'+index1">
+                <mat-button-toggle value="left">
+                    <mat-icon>format_align_left</mat-icon>
+                </mat-button-toggle>
+                <mat-button-toggle value="center">
+                    <mat-icon>format_align_center</mat-icon>
+                </mat-button-toggle>
+                <mat-button-toggle value="right">
+                    <mat-icon>format_align_right</mat-icon>
+                </mat-button-toggle>
+                <mat-button-toggle value="justify" disabled>
+                    <mat-icon>format_align_justify</mat-icon>
+                </mat-button-toggle>
+                <div class="tp-selected-value">Selected value: Index={{index1}}, {{i.disp}}</div>
+            </mat-button-toggle-group>
+
+        </div>
+        <div>
+            <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon" (click)="increase()">
+                <mat-icon>plus_one</mat-icon>
+              </button>
+            <button *ngIf="iss" mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon" (click)="decrease()">
+                <mat-icon>home</mat-icon>
+              </button>
+        </div>
+        <div>
+            <h3>Gender
+            </h3>
+            <mat-button-toggle-group name="gender" aria-label="Favorite Color" #t='matButtonToggleGroup' appearance="legacy">
+                <mat-button-toggle class="e-custom" value="male">
+                    <div class="outer-div">
+                        <i class="fa fa-mars fa-2x" ria-hidden="true"></i>
+                        <span>Male</span>
+                    </div>
+                </mat-button-toggle>
+                <mat-button-toggle class="e-custom" value="female">
+                    <div class="outer-div">
+                        <i class="fa fa-venus fa-2x" ria-hidden="true"></i>
+                        <span>Female</span>
+                    </div>
+                </mat-button-toggle>
+                <mat-button-toggle class="e-custom" value="Other">
+                    <div class="outer-div">
+                        <i class="fa fa-transgender fa-2x" ria-hidden="true"></i>
+                        <span>Other</span>
+                    </div>
+                </mat-button-toggle>
+
+            </mat-button-toggle-group>
+            {{t.value}}
+
+        </div>
+        <mat-form-field>
+            <input [(ngModel)]="aadhar" name="aadhar" matInput placeholder="Aadhar ID">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input [(ngModel)]="pan" name="pan" matInput placeholder="Pan ID">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input [(ngModel)]="passport" name="passport" matInput placeholder="Passport Number ">
+        </mat-form-field>
+        <mat-form-field>
+            <input [(ngModel)]="pexp" name="exp" matInput [matDatepicker]="exppicker" placeholder="Passport Expiry date">
+            <mat-datepicker-toggle matSuffix [for]="exppicker"></mat-datepicker-toggle>
+            <mat-datepicker #exppicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input [(ngModel)]="rhouse" name="rhouse" matInput placeholder="House Number">
+        </mat-form-field>
+
+
+        <mat-form-field>
+            <input [(ngModel)]="radd1" name="radd1" matInput placeholder="Address Line 1">
+        </mat-form-field>
+
+
+        <mat-form-field>
+            <input [(ngModel)]="radd2" name="radd2" matInput placeholder="Address Line 2">
+        </mat-form-field>
+
+
+
+        <mat-form-field appearance="fill">
+
+            <mat-label>City</mat-label>
+            <mat-select>
+                <mat-option value="rAct">A</mat-option>
+                <mat-option value="rBct">B</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>State</mat-label>
+            <mat-select>
+                <mat-option value="rAs">A</mat-option>
+                <mat-option value="rBs">B</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+
+            <mat-label>Country</mat-label>
+            <mat-select>
+                <mat-option value="rAc">A</mat-option>
+                <mat-option value="rBc">B</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-slide-toggle [checked]="checked" [disabled]="disabled" (change)="toggle()">
+            Residential Address same as permanent Address
+        </mat-slide-toggle>
+
+
+
+
+        <div *ngIf="psr">
+            <mat-form-field>
+                <input [(ngModel)]="phouse" name="phouse" matInput placeholder="House Number">
+            </mat-form-field>
+
+
+            <mat-form-field>
+                <input [(ngModel)]="padd1" name="padd1" matInput placeholder="Address Line 1">
+            </mat-form-field>
+
+
+            <mat-form-field>
+                <input [(ngModel)]="padd2" name="padd2" matInput placeholder="Address Line 2">
+            </mat-form-field>
+
+
+
+
+            <mat-form-field appearance="fill">
+
+                <mat-label>City</mat-label>
+                <mat-select>
+                    <mat-option value="pAct">A</mat-option>
+                    <mat-option value="pBct">B</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="fill">
+                <mat-label>State</mat-label>
+                <mat-select>
+                    <mat-option value="pAs">A</mat-option>
+                    <mat-option value="pBs">B</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="fill">
+                <mat-label>Country</mat-label>
+                <mat-select>
+                    <mat-option value="pAc">A</mat-option>
+                    <mat-option value="rBc">B</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </div>
+
+
+        <mat-form-field>
+            <input [(ngModel)]="fname" name="fname" matInput placeholder="Father's Name">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input [(ngModel)]="focc" name="focc" matInput placeholder="Father's Occupation">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input [(ngModel)]="fdateofbirth" name="fdateofbirth" matInput [matDatepicker]="fpicker" placeholder="Father's DOB">
+            <mat-datepicker-toggle matSuffix [for]="fpicker">
+            </mat-datepicker-toggle>
+            <mat-datepicker #fpicker>
+            </mat-datepicker>
+        </mat-form-field>
+
+
+
+        <mat-form-field>
+            <input [(ngModel)]="mname" name="mname" matInput placeholder="Mother's Name">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input [(ngModel)]="mocc" name="mocc" matInput placeholder="Mother's Occupation">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input [(ngModel)]="mdateofbirth" name="mdateofbirth" matInput [matDatepicker]="mpicker" placeholder="Mother's DOB">
+            <mat-datepicker-toggle matSuffix [for]="mpicker">
+            </mat-datepicker-toggle>
+            <mat-datepicker #mpicker>
+            </mat-datepicker>
+        </mat-form-field>
+
+
+
+        <button mat-raised-button color="primary">Save and Next</button>
+    </form>
+    <br>
 </div>

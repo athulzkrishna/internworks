@@ -1,23 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+
 import { AppointmentService } from '../appointment.service';
 import { Appointment } from '../Appointment';
-import { just } from '../Appointment';
 
 @Component({
-  selector: 'app-appointment',
-  templateUrl: './appointment.component.html',
-  styleUrls: ['./appointment.component.css']
+  selector: 'app-ui',
+  templateUrl: './ui.component.html',
+  styleUrls: ['./ui.component.css']
 })
-export class AppointmentComponent implements OnInit {
+export class UiComponent implements OnInit {
 
   public successMsg: string;
   public errorMsg: string;
-
   dateofbirth: string;
   firstname: string;
   lastname: string;
   Mstatus: string;
-  
   addnew=0;
   align=[];
   j: any;
@@ -82,10 +80,6 @@ export class AppointmentComponent implements OnInit {
             this.align.push(this.j);
             //console.log(this.align);
             }
-  toggle()
-  {
-    this.psr=!this.psr;
-  }
   decrease(){
             if(this.addnew>1)
             {
@@ -101,6 +95,9 @@ export class AppointmentComponent implements OnInit {
             }      
             this.align.pop();
             }
+  toggle()
+            {
+              this.psr=!this.psr;
+            }
 
 }
-

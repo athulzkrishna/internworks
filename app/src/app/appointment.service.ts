@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Appointment } from './Appointment';
+import { just } from './Appointment';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -17,8 +18,8 @@ export class AppointmentService {
     return this.http.get<Appointment[]>(`${this.BASE_URL}/appointments`);
   }
 
-  createAppointment(appointmentDate: string, name: string, email: string): Observable<Appointment> {
-    return this.http.post<Appointment>(`${this.BASE_URL}/appointments`, { appointmentDate, name, email });
+  createAppointment(firstname: string, lastname: string,dateofbirth: string,Mstatus:string,align:Array<just>): Observable<Appointment> {
+    return this.http.post<Appointment>(`${this.BASE_URL}/appointments`, { firstname, lastname, dateofbirth, Mstatus, align });
   }
 
   cancelAppointment(id: string): Observable<any> {

@@ -1,0 +1,91 @@
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.form-container {
+    margin-top: 50px;
+    display: flex;
+    margin: block 50px;
+}
+
+form {
+    display: inline-block;
+    text-align: left;
+    flex-direction: column;
+    padding-left: 20%;
+    font-size: 14px;
+}
+
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    padding: 10px;
+    color: #26303e;
+    font-size: 14px;
+}
+
+.mat-button-toggle-group:focus {
+    outline: none;
+}
+
+.custom-text {
+    color: #26303e;
+    font-weight: bold;
+}
+
+.column {
+    float: left;
+    width: 35%;
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.error {
+    background-color: #d84f4f;
+    padding: 10px;
+}
+
+.success {
+    background-color: #73cc73;
+    padding: 10px;
+}
+
+.e-custom {
+    border-radius: 0;
+    height: 80px;
+    outline: none;
+    width: 80px;
+    margin-right: 50px;
+    color: #b0b4b9;
+}
+
+.e-custom:hover {
+    background-color: #f3f5fc;
+    color: #26303e;
+}
+
+.e-custom:focus {
+    background-color: #f3f5fc;
+    color: #26303e;
+}
+
+.e-custom:active {
+    background-color: #f3f5fc;
+    color: #26303e;
+}
+
+.outer-div {
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.outer-div>span {
+    font-size: 12px;
+}
