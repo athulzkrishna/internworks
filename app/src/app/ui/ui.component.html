@@ -26,7 +26,7 @@
                     Gender
                 </div>
                 <div>
-                    <mat-button-toggle-group name="gender" aria-label="Favorite Color" #t="matButtonToggleGroup">
+                    <mat-button-toggle-group class="mbtg" name="gender" aria-label="Favorite Color" #t="matButtonToggleGroup">
                         <mat-button-toggle class="e-custom" value="male">
                             <div class="outer-div">
                                 <i class="fa fa-mars fa-2x" ria-hidden="true"></i>
@@ -57,13 +57,15 @@
                     Marital Status
                 </div>
                 <div>
-                    <mat-button-toggle-group [(ngModel)]="Mstatus" name="Mstatus" aria-label="Favorite Color" #tt="matButtonToggleGroup" appearance="legacy">
+                    <mat-button-toggle-group class="mbtg" [(ngModel)]="Mstatus" name="Mstatus" aria-label="Favorite Color" #tt="matButtonToggleGroup">
+
                         <mat-button-toggle class="e-custom" value="Bachelor">
                             <div class="outer-div">
                                 <i class="fa fa-circle fa-2x" ria-hidden="true"></i>
                                 <span>Bachelor</span>
                             </div>
                         </mat-button-toggle>
+
                         <mat-button-toggle class="e-custom" value="Married">
                             <div class="outer-div">
                                 <i class="fa fa-circle-o fa-2x" ria-hidden="true"></i>
@@ -194,8 +196,7 @@
                     <mat-form-field [style.width.px]="327" appearance="outline">
                         <mat-label>Country</mat-label>
                         <mat-select>
-                            <mat-option value="rAc">A</mat-option>
-                            <mat-option value="rBc">B</mat-option>
+                            <mat-option *ngFor="let i of country" value="rAc">{{i.name}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
@@ -255,42 +256,118 @@
                     <mat-form-field [style.width.px]="327" appearance="outline">
                         <mat-label>Country</mat-label>
                         <mat-select>
-                            <mat-option value="pAc">A</mat-option>
-                            <mat-option value="rBc">B</mat-option>
+                            <mat-option *ngFor="let i of country" value="pAc">{{i.name}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
             </div>
+            <div class="row">
+                <div class="custom-text">
+                    Father's Details
+                </div>
+                <div class="column">
+                    <mat-form-field [style.width.px]="327" appearance="outline">
+                        <mat-label>Father's Name</mat-label>
+                        <input [(ngModel)]="ffname" name="ffname" matInput placeholder="Father's Name" />
+                    </mat-form-field>
+                </div>
+                <div class="column">
+                    <mat-form-field [style.width.px]="327" appearance="outline">
+                        <mat-label>Father's Occupation</mat-label>
+                        <input [(ngModel)]="ffocc" name="ffocc" matInput placeholder="Father's Occupation" />
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <mat-form-field [style.width.px]="327" appearance="outline">
+                        <mat-label>Date of Birth</mat-label>
+                        <input [(ngModel)]="ffdateofbirth" name="ffdateofbirth" matInput [matDatepicker]="ffpicker" placeholder="Father's DOB" />
+                        <mat-datepicker-toggle matSuffix [for]="ffpicker"> </mat-datepicker-toggle>
+                        <mat-datepicker #fpicker> </mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="column">
+                    <mat-form-field [style.width.px]="327" appearance="outline">
+                        <mat-label>Blood Group</mat-label>
+                        <mat-select>
+                            <mat-option value="Ap">A+</mat-option>
+                            <mat-option value="Bp">B+</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="custom-text">
+                    Mother's Details
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <mat-form-field [style.width.px]="327" appearance="outline">
+                            <mat-label>Mother's Name</mat-label>
+                            <input [(ngModel)]="mmname" name="mmname" matInput placeholder="Mother's Name" />
+                        </mat-form-field>
+                    </div>
+                    <div class="column">
+                        <mat-form-field [style.width.px]="327" appearance="outline">
+                            <mat-label>Mother's Occupation</mat-label>
+                            <input [(ngModel)]="mmocc" name="mmocc" matInput placeholder="Mother's Occupation" />
+                        </mat-form-field>
+                    </div>
+                </div>
 
-            <mat-form-field>
-                <input [(ngModel)]="fname" name="fname" matInput placeholder="Father's Name" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input [(ngModel)]="focc" name="focc" matInput placeholder="Father's Occupation" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input [(ngModel)]="fdateofbirth" name="fdateofbirth" matInput [matDatepicker]="fpicker" placeholder="Father's DOB" />
-                <mat-datepicker-toggle matSuffix [for]="fpicker"> </mat-datepicker-toggle>
-                <mat-datepicker #fpicker> </mat-datepicker>
-            </mat-form-field>
-
-            <mat-form-field>
-                <input [(ngModel)]="mname" name="mname" matInput placeholder="Mother's Name" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input [(ngModel)]="mocc" name="mocc" matInput placeholder="Mother's Occupation" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input [(ngModel)]="mdateofbirth" name="mdateofbirth" matInput [matDatepicker]="mpicker" placeholder="Mother's DOB" />
-                <mat-datepicker-toggle matSuffix [for]="mpicker"> </mat-datepicker-toggle>
-                <mat-datepicker #mpicker> </mat-datepicker>
-            </mat-form-field>
-
+            </div>
+            <div class="row">
+                <div class="column">
+                    <mat-form-field [style.width.px]="327" appearance="outline">
+                        <mat-label>Date of Birth</mat-label>
+                        <input [(ngModel)]="mmdateofbirth" name="mmdateofbirth" matInput [matDatepicker]="mmpicker" placeholder="Mother's DOB" />
+                        <mat-datepicker-toggle matSuffix [for]="mmpicker"> </mat-datepicker-toggle>
+                        <mat-datepicker #mpicker> </mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="column">
+                    <mat-form-field [style.width.px]="327" appearance="outline">
+                        <mat-label>Blood Group</mat-label>
+                        <mat-select>
+                            <mat-option value="Ap">A+</mat-option>
+                            <mat-option value="Bp">B+</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
             <button mat-raised-button color="primary">Save and Next</button>
+            <div class="dummy">
+                <mat-form-field>
+                    <input [(ngModel)]="fname" name="fname" matInput placeholder="Father's Name" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input [(ngModel)]="focc" name="focc" matInput placeholder="Father's Occupation" />
+                </mat-form-field>
+
+
+                <mat-form-field>
+                    <input [(ngModel)]="fdateofbirth" name="fdateofbirth" matInput [matDatepicker]="fpicker" placeholder="Father's DOB" />
+                    <mat-datepicker-toggle matSuffix [for]="fpicker"> </mat-datepicker-toggle>
+                    <mat-datepicker #fpicker> </mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input [(ngModel)]="mname" name="mname" matInput placeholder="Mother's Name" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input [(ngModel)]="mocc" name="mocc" matInput placeholder="Mother's Occupation" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input [(ngModel)]="mdateofbirth" name="mdateofbirth" matInput [matDatepicker]="mpicker" placeholder="Mother's DOB" />
+                    <mat-datepicker-toggle matSuffix [for]="mpicker"> </mat-datepicker-toggle>
+                    <mat-datepicker #mpicker> </mat-datepicker>
+                </mat-form-field>
+
+            </div>
         </form>
         <br />
     </div>

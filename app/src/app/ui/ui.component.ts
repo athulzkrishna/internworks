@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Country, State, City }  from 'country-state-city';
 import { AppointmentService } from '../appointment.service';
 import { Appointment } from '../Appointment';
 
@@ -18,6 +18,9 @@ export class UiComponent implements OnInit {
   Mstatus: string;
   addnew=0;
   align=[];
+  country:any;
+  state:any;
+  city:any;
   j: any;
   iss=false;
   disabled = false;
@@ -46,6 +49,7 @@ export class UiComponent implements OnInit {
 
   ngOnInit() {
     this.increase();
+    this.populateCountries();
   }
 
   createAppointment() {
@@ -99,5 +103,10 @@ export class UiComponent implements OnInit {
             {
               this.psr=!this.psr;
             }
+  populateCountries(){
+    this.country=Country.getAllCountries();
+    this.state=State.getAllStates();
+    this.city=City.getAllCities();
+  }
 
 }

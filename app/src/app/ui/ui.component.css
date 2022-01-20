@@ -16,6 +16,19 @@ form {
     font-size: 14px;
 }
 
+.mbtg {
+    margin-top: 10px;
+}
+
+.dummy {
+    font-size: 2px;
+    color: white;
+}
+
+.dummy .mat-input-underline {
+    background-color: white;
+}
+
 
 /* Clear floats after the columns */
 
@@ -60,8 +73,9 @@ form {
     height: 80px;
     outline: none;
     width: 80px;
-    margin-right: 50px;
+    margin-right: 0px;
     color: #b0b4b9;
+    align-items: center;
 }
 
 .e-custom:hover {
@@ -88,4 +102,16 @@ form {
 
 .outer-div>span {
     font-size: 12px;
+}
+
+mat-button-toggle {
+    border: 1px solid #b0b4b9;
+    border-radius: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+    width: 50px;
+    height: 50px;
+    font-family: 'Nunito Semibold', sans-serif;
+    font-size: 14px;
+    font-style: bold;
 }
