@@ -31,6 +31,9 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { UiComponent } from './ui/ui.component';
+import { AboutyouComponent } from './aboutyou/aboutyou.component';
+import { EducationdetailsComponent } from './educationdetails/educationdetails.component';
+import { PrevemploymentComponent } from './prevemployment/prevemployment.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { UiComponent } from './ui/ui.component';
     AppointmentListComponent,
     BasicDetailsComponent,
     NavBarComponent,
-    UiComponent
+    UiComponent,
+    AboutyouComponent,
+    EducationdetailsComponent,
+    PrevemploymentComponent
   ],
   imports: [
     BrowserModule,

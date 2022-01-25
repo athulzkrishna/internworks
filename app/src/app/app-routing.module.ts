@@ -5,6 +5,9 @@ import { AppointmentListComponent } from './appointment-list/appointment-list.co
 import { BasicDetailsComponent } from './basic-details/basic-details.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { UiComponent } from './ui/ui.component';
+import { EducationdetailsComponent } from './educationdetails/educationdetails.component';
+import { AboutyouComponent } from './aboutyou/aboutyou.component';
+import { PrevemploymentComponent } from './prevemployment/prevemployment.component';
 const routes: Routes = [
   {
     path: '',
@@ -25,6 +28,18 @@ const routes: Routes = [
   {
     path: 'ui',
     component: UiComponent,
+  },
+  {
+    path: 'about',
+    component: AboutyouComponent,
+  },
+  {
+    path: 'prev',
+    component: PrevemploymentComponent,
+  },
+  {
+    path: 'education',
+    component: EducationdetailsComponent,
   }
 
 ];

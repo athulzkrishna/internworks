@@ -3,6 +3,28 @@
     max-width: 350px;
 }
 
+.column {
+    float: left;
+    width: 35%;
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    padding: 10px;
+    color: #26303e;
+    font-size: 14px;
+}
+
+.custom-text {
+    color: #26303e;
+    font-weight: bold;
+}
+
 form {
     display: flex;
     flex-direction: column;

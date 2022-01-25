@@ -1,0 +1,62 @@
+<html>
+
+<body>
+    <div class="form-container">
+        <!--Hello-->
+        <form>
+            <div class="row">
+                <div class="columnmenu">
+                    <a routerLink="/ui" routerLinkActive="active" style="text-decoration: none;font-size:14px; color:#01cf78">Basic Details</a>
+                </div>
+
+                <div class="columnmenu">
+                    <a routerLink="/education" routerLinkActive="active" style="text-decoration: none;font-size:14px; color:#01cf78">Educational Details</a>
+                </div>
+
+                <div class="columnmenu">
+                    <a routerLink="/prev" routerLinkActive="active">Previous Employment</a>
+                </div>
+
+                <div class="columnmenu">
+                    <a routerLink="/about" routerLinkActive="active">About you</a>
+                </div>
+
+            </div>
+            <div class="dummy">
+                <mat-form-field>
+                    <input [(ngModel)]="fname" name="fname" matInput placeholder="Father's Name" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input [(ngModel)]="focc" name="focc" matInput placeholder="Father's Occupation" />
+                </mat-form-field>
+
+
+                <mat-form-field>
+                    <input [(ngModel)]="fdateofbirth" name="fdateofbirth" matInput [matDatepicker]="fpicker" placeholder="Father's DOB" />
+                    <mat-datepicker-toggle matSuffix [for]="fpicker"> </mat-datepicker-toggle>
+                    <mat-datepicker #fpicker> </mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input [(ngModel)]="mname" name="mname" matInput placeholder="Mother's Name" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input [(ngModel)]="mocc" name="mocc" matInput placeholder="Mother's Occupation" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input [(ngModel)]="mdateofbirth" name="mdateofbirth" matInput [matDatepicker]="mpicker" placeholder="Mother's DOB" />
+                    <mat-datepicker-toggle matSuffix [for]="mpicker"> </mat-datepicker-toggle>
+                    <mat-datepicker #mpicker> </mat-datepicker>
+                </mat-form-field>
+
+            </div>
+
+        </form>
+
+    </div>
+</body>
+
+</html>

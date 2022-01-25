@@ -5,6 +5,24 @@
         <!--Hello-->
         <form (submit)="createAppointment()">
             <div class="row">
+                <div class="columnmenu">
+                    <a routerLink="/ui" routerLinkActive="active">Basic Details</a>
+                </div>
+
+                <div class="columnmenu">
+                    <a routerLink="/education" routerLinkActive="active">Educational Details</a>
+                </div>
+
+                <div class="columnmenu">
+                    <a routerLink="/prev" routerLinkActive="active">Previous Employment</a>
+                </div>
+
+                <div class="columnmenu">
+                    <a routerLink="/about" routerLinkActive="active">About you</a>
+                </div>
+
+            </div>
+            <div class="row">
                 <div class="column">
                     <mat-form-field [style.width.px]="327" appearance="outline">
                         <mat-label>First Name</mat-label>
@@ -335,6 +353,36 @@
                         </mat-select>
                     </mat-form-field>
                 </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="custom-text">
+                        Languages Known
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="custom-text">
+                        Proficiency
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngFor="let i of align;let index1 = index;">
+                <div class="column">
+                    <mat-form-field appearance="outline" [style.width.px]="327">
+                        <mat-label>Language</mat-label>
+                        <input [(ngModel)]="lang" name="lang" matInput placeholder="Language">
+
+                    </mat-form-field>
+                </div>
+                <div class="column">
+                    <mat-checkbox class="easy">Read</mat-checkbox>
+                    <mat-checkbox class="easy">Write</mat-checkbox>
+                    <mat-checkbox class="easy">Speak</mat-checkbox>
+                </div>
+            </div>
+            <div class="row">
+                <button mat-stroked-button (click)="increase()">+ Add New</button>
+                <button mat-stroked-button (click)="decrease()" *ngIf="iss">- Remove</button>
             </div>
             <button mat-raised-button color="primary">Save and Next</button>
             <div class="dummy">

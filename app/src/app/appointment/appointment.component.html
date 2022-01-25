@@ -8,8 +8,31 @@
         <mat-form-field appearance="outline">
             <input [(ngModel)]="lastname" name="lastname" matInput placeholder="Last Name">
         </mat-form-field>
-
-
+        <mat-checkbox class="example-margin">Check me!</mat-checkbox>
+        <div class="row">
+            <div class="column">
+                <div class="custom-text">
+                    Language Known
+                </div>
+            </div>
+            <div class="column">
+                <div class="custom-text">
+                    Proficiency
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <mat-form-field appearance="outline">
+                    <input [(ngModel)]="lang" name="lang" matInput placeholder="Lang">
+                </mat-form-field>
+            </div>
+            <div class="column">
+                <mat-checkbox class="example-margin">Check me!</mat-checkbox>
+                <mat-checkbox class="example-margin">Check me!</mat-checkbox>
+                <mat-checkbox class="example-margin">Check me!</mat-checkbox>
+            </div>
+        </div>
 
 
 
