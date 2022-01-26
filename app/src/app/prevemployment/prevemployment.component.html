@@ -14,13 +14,131 @@
                 </div>
 
                 <div class="columnmenu">
-                    <a routerLink="/prev" routerLinkActive="active">Previous Employment</a>
+                    <a routerLink="/prev" routerLinkActive="active" style="text-decoration: underline;text-underline-offset: 10px;font-size:14px; color:#000000">Previous Employment</a>
                 </div>
 
                 <div class="columnmenu">
                     <a routerLink="/about" routerLinkActive="active">About you</a>
                 </div>
 
+            </div>
+            <div *ngFor="let i of align;let index1 = index;">
+                <div class="row">
+                    <div class="custom-text">
+                        Job Details
+                    </div>
+                    <div class="column1">
+                        <mat-form-field [style.width.px]="300" appearance="outline">
+                            <mat-label>Company Name</mat-label>
+                            <input [(ngModel)]="compname" name="compname" matInput placeholder="Last Employer Name" />
+                        </mat-form-field>
+                    </div>
+                    <div class="column1">
+                        <mat-form-field [style.width.px]="300" appearance="outline">
+                            <mat-label>Role</mat-label>
+                            <input [(ngModel)]="role" name="role" matInput placeholder="Mention Your Designation" />
+                        </mat-form-field>
+                    </div>
+                    <div class="column1">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Company Logo</mat-label>
+                            <input [(ngModel)]="logo" name="logo" matInput placeholder="Jpeg/Png/Bmp" />
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column1">
+                        <mat-form-field [style.width.px]="300" appearance="outline">
+                            <mat-label>Start Date</mat-label>
+                            <input [(ngModel)]="start" name="start" matInput [matDatepicker]="startpicker" placeholder="Choose a date" />
+                            <mat-datepicker-toggle matSuffix [for]="startpicker"> </mat-datepicker-toggle>
+                            <mat-datepicker #startpicker> </mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="column1">
+                        <mat-form-field [style.width.px]="300" appearance="outline">
+                            <mat-label>End Date</mat-label>
+                            <input [(ngModel)]="end" name="end" matInput [matDatepicker]="endpicker" placeholder="Choose a date" />
+                            <mat-datepicker-toggle matSuffix [for]="endpicker"> </mat-datepicker-toggle>
+                            <mat-datepicker #endpicker> </mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="column1">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Job Type</mat-label>
+                            <mat-select>
+                                <mat-option value="rAct">A</mat-option>
+                                <mat-option value="rBct">B</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column1">
+                        <mat-form-field [style.width.px]="300" appearance="outline" floatLabel="always">
+                            <mat-label>Yearly Pay</mat-label>
+                            <input matInput type="number" class="example-right-align" placeholder="0">
+                            <span matPrefix>$&nbsp;</span>
+                            <span matSuffix>.00</span>
+                        </mat-form-field>
+                    </div>
+                    <div class="column1">
+                        <mat-form-field [style.width.px]="550" appearance="outline">
+                            <mat-label>Reason For Leaving</mat-label>
+                            <input [(ngModel)]="reason" name="reason" matInput placeholder="Mention Here" />
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="custom-text">
+                        HR Manager Details
+                    </div>
+                    <div class="column1">
+                        <mat-form-field [style.width.px]="300" appearance="outline">
+                            <mat-label>Name</mat-label>
+                            <input [(ngModel)]="hrname" name="hrname" matInput placeholder="HR Manager Name" />
+                        </mat-form-field>
+                    </div>
+                    <div class="column1">
+                        <mat-form-field [style.width.px]="300" appearance="outline">
+                            <mat-label>Email ID</mat-label>
+                            <input [(ngModel)]="hrid" name="hrid" matInput placeholder="Mail ID of HR" />
+                        </mat-form-field>
+                    </div>
+                    <div class="column1">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Phone Number</mat-label>
+                            <input [(ngModel)]="pno" name="pno" matInput placeholder="XXXXXXXXXX" />
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="custom-text">
+                        Previous Manager Details
+                    </div>
+                    <div class="column1">
+                        <mat-form-field [style.width.px]="300" appearance="outline">
+                            <mat-label>Name</mat-label>
+                            <input [(ngModel)]="pmname" name="pmname" matInput placeholder="Project Manager Name" />
+                        </mat-form-field>
+                    </div>
+                    <div class="column1">
+                        <mat-form-field [style.width.px]="300" appearance="outline">
+                            <mat-label>Email ID</mat-label>
+                            <input [(ngModel)]="pmid" name="pmid" matInput placeholder="Mail ID of Project Manager" />
+                        </mat-form-field>
+                    </div>
+                    <div class="column1">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Phone Number</mat-label>
+                            <input [(ngModel)]="ppno" name="ppno" matInput placeholder="XXXXXXXXXX" />
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <button mat-stroked-button class="bttn" (click)="increase()">+ Add New Job</button>
+                <button mat-stroked-button class="bttn" (click)="decrease()" *ngIf="iss">- Remove</button>
             </div>
             <div class="dummy">
                 <mat-form-field>
