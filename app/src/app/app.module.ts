@@ -14,6 +14,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 import {
   MatTableModule,
   MatProgressSpinnerModule,
@@ -52,6 +53,7 @@ import { PrevemploymentComponent } from './prevemployment/prevemployment.compone
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    
     HttpClientModule,
     FormsModule,
     MatTableModule,

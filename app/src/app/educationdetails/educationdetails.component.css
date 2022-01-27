@@ -16,9 +16,7 @@ form {
     font-size: 14px;
 }
 
-.mbtg {
-    margin-top: 10px;
-}
+
 
 .dummy {
     font-size: 2px;
@@ -59,6 +57,10 @@ form {
     margin-right: 10px;
 }
 
+.mat-button-toggle-group {
+    height: 50px;
+    align-items: center;
+  }
 .mat-button-toggle-group:focus {
     outline: none;
 }
@@ -66,12 +68,44 @@ form {
 .custom-text {
     color: #26303e;
     font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.bttn {
+    border: 2px solid black;
+    background-color: white;
+    margin-right: 2px;
 }
 
 .column {
     float: left;
     width: 35%;
-    padding: 10px;
+    padding-right: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.column1 {
+    float: left;
+    width: 20%;
+    padding-right: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.column2 {
+    float: left;
+    width: 40%;
+    padding-right: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.column3 {
+    float: left;
+    width: 30%;
+    
+    padding-right: 80px;
     text-align: left;
     font-size: 14px;
 }
@@ -87,10 +121,10 @@ form {
 }
 
 .e-custom {
-    border-radius: 0;
+    border-radius: none;
     height: 80px;
     outline: none;
-    width: 80px;
+    width: 40px;
     margin-right: 0px;
     color: #b0b4b9;
     align-items: center;
