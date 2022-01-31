@@ -27,13 +27,13 @@
                     10th/ Matriculation
                 </div>
                 <div class="column2">
-                    <mat-form-field [style.width.px]="400" appearance="outline">
+                    <mat-form-field [style.width.%]="88" appearance="outline">
                         <mat-label>School/ Institution</mat-label>
                         <input [(ngModel)]="school10" name="school10" matInput placeholder="Enter your School name" />
                     </mat-form-field>
                 </div>
                 <div class="column1">
-                    <mat-form-field appearance="outline">
+                    <mat-form-field [style.width.%]="100" appearance="outline">
                         <mat-label>Pass Out Year</mat-label>
                         <mat-select>
                             <mat-option value="2020">2020</mat-option>
@@ -42,7 +42,7 @@
                     </mat-form-field>
                 </div>
                 <div class="column1">
-                    <mat-form-field appearance="outline" floatLabel="always">
+                    <mat-form-field [style.width.%]="100" appearance="outline" floatLabel="always">
                         <mat-label>Percentage</mat-label>
                         <input matInput type="number" class="example-right-align" placeholder="Your Aggregate" step=".01" />
                         <span matSuffix>%</span>
@@ -55,13 +55,13 @@
                     12th/ Matriculation
                 </div>
                 <div class="column2">
-                    <mat-form-field [style.width.px]="400" appearance="outline">
+                    <mat-form-field [style.width.%]="88" appearance="outline">
                         <mat-label>School/ Institution</mat-label>
                         <input [(ngModel)]="school12" name="school12" matInput placeholder="Enter your School name" />
                     </mat-form-field>
                 </div>
                 <div class="column1">
-                    <mat-form-field appearance="outline">
+                    <mat-form-field [style.width.%]="100" appearance="outline">
                         <mat-label>Pass Out Year</mat-label>
                         <mat-select>
                             <mat-option value="2020">2020</mat-option>
@@ -70,7 +70,7 @@
                     </mat-form-field>
                 </div>
                 <div class="column1">
-                    <mat-form-field appearance="outline" floatLabel="always">
+                    <mat-form-field [style.width.%]="100" appearance="outline" floatLabel="always">
                         <mat-label>Percentage</mat-label>
                         <input matInput type="number" class="example-right-align" placeholder="Your Aggregate" step=".01" />
                         <span matSuffix>%</span>
@@ -83,13 +83,13 @@
                     Degree/ Graduation
                 </div>
                 <div class="column2">
-                    <mat-form-field [style.width.px]="400" appearance="outline">
+                    <mat-form-field [style.width.%]="88" appearance="outline">
                         <mat-label>College/ University</mat-label>
                         <input [(ngModel)]="clg" name="clg" matInput placeholder="Enter your College name" />
                     </mat-form-field>
                 </div>
                 <div class="column2">
-                    <mat-form-field [style.width.px]="400" appearance="outline">
+                    <mat-form-field [style.width.%]="88" appearance="outline">
                         <mat-label>Stream/ Subject</mat-label>
                         <input [(ngModel)]="stream" name="stream" matInput placeholder="What were your Specialisation" />
                     </mat-form-field>
@@ -99,7 +99,7 @@
             <div class="row">
                 <div class="column2">
                     <div class="column3">
-                        <mat-form-field [style.width.px]="180" appearance="outline">
+                        <mat-form-field [style.width.%]="100" appearance="outline">
                             <mat-label>Pass Out Year</mat-label>
                             <mat-select>
                                 <mat-option value="2020">2020</mat-option>
@@ -108,7 +108,7 @@
                         </mat-form-field>
                     </div>
                     <div class="column3">
-                        <mat-form-field [style.width.px]="180" appearance="outline" floatLabel="always">
+                        <mat-form-field [style.width.%]="100" appearance="outline" floatLabel="always">
                             <mat-label>Percentage</mat-label>
                             <input matInput type="number" class="example-right-align" placeholder="Your Aggregate" step=".01" />
                             <span matSuffix>%</span>
@@ -123,13 +123,13 @@
                         Masters/ Post Graduation
                     </div>
                     <div class="column2">
-                        <mat-form-field [style.width.px]="400" appearance="outline">
+                        <mat-form-field [style.width.%]="88" appearance="outline">
                             <mat-label>College/ University</mat-label>
                             <input [(ngModel)]="clg" name="clg" matInput placeholder="Enter your College name" />
                         </mat-form-field>
                     </div>
                     <div class="column2">
-                        <mat-form-field [style.width.px]="400" appearance="outline">
+                        <mat-form-field [style.width.%]="88" appearance="outline">
                             <mat-label>Stream/ Subject</mat-label>
                             <input [(ngModel)]="stream" name="stream" matInput placeholder="What were your Specialisation" />
                         </mat-form-field>
@@ -139,7 +139,7 @@
                 <div class="row">
                     <div class="column2">
                         <div class="column3">
-                            <mat-form-field [style.width.px]="180" appearance="outline">
+                            <mat-form-field [style.width.%]="100" appearance="outline">
                                 <mat-label>Pass Out Year</mat-label>
                                 <mat-select>
                                     <mat-option value="2020">2020</mat-option>
@@ -148,7 +148,7 @@
                             </mat-form-field>
                         </div>
                         <div class="column3">
-                            <mat-form-field [style.width.px]="180" appearance="outline" floatLabel="always">
+                            <mat-form-field [style.width.%]="100" appearance="outline" floatLabel="always">
                                 <mat-label>Percentage</mat-label>
                                 <input matInput type="number" class="example-right-align" placeholder="Your Aggregate" step=".01" />
                                 <span matSuffix>%</span>
@@ -162,19 +162,19 @@
                 <button mat-stroked-button class="bttn" (click)="decrease()" *ngIf="iss">- Remove</button>
             </div>
             <div class="row"></div>
-            <div *ngFor="let i of align1;let index1 = index;">
+            <div *ngFor="let i of align;let index1 = index;">
                 <div class="row">
                     <div class="custom-text">
                         Skillset
                     </div>
                     <div class="column2">
-                        <mat-form-field [style.width.px]="400" appearance="outline">
+                        <mat-form-field [style.width.%]="88" appearance="outline">
                             <mat-label>Mention your Skills</mat-label>
                             <input [(ngModel)]="school10" name="school10" matInput placeholder="Eg. Ui Design, Java, etc." />
                         </mat-form-field>
                     </div>
                     <div class="column1">
-                        <mat-form-field appearance="outline">
+                        <mat-form-field [style.width.%]="100" appearance="outline">
                             <mat-label>Skilltype</mat-label>
                             <mat-select>
                                 <mat-option value="Skill1">Skill1</mat-option>
@@ -183,7 +183,7 @@
                         </mat-form-field>
                     </div>
                     <div class="column1">
-                        <mat-form-field appearance="outline">
+                        <mat-form-field [style.width.%]="100" appearance="outline">
                             <mat-label>Certification</mat-label>
                             <mat-select>
                                 <mat-option value="certification1">Certification1</mat-option>
@@ -195,7 +195,7 @@
 
                 <div class="row">
                     <div class="column2">
-                        <mat-form-field [style.width.px]="400" appearance="outline">
+                        <mat-form-field [style.width.%]="88" appearance="outline">
                             <mat-label>Upload Certificates</mat-label>
                             <input [(ngModel)]="certi" name="certi" matInput placeholder="Png/ Jpeg/ Bmp/ Pdf" />
                         </mat-form-field>
@@ -209,7 +209,7 @@
                          -->
                     </div>
                     <div class="column1">
-                        <mat-button-toggle-group class="mbtg" name="skillassess" aria-label="SkillAssessment" #t="matButtonToggleGroup">
+                        <mat-button-toggle-group [style.width.%]="100" class="mbtg" name="skillassess" aria-label="SkillAssessment" #t="matButtonToggleGroup">
                             <mat-label style="color:#757575">Skill Assessment</mat-label>
                             <mat-button-toggle class="e-custom" value="male">
 
@@ -242,8 +242,8 @@
                 </div>
             </div>
             <div class="row">
-                <button mat-stroked-button class="bttn" (click)="increase1()">+ Add New Skill</button>
-                <button mat-stroked-button class="bttn" (click)="decrease1()" *ngIf="iss1">- Remove</button>
+                <button mat-stroked-button class="bttn" (click)="increase()">+ Add New Skill</button>
+                <button mat-stroked-button class="bttn" (click)="decrease()" *ngIf="iss">- Remove</button>
             </div>
             <div class="row"></div>
 
