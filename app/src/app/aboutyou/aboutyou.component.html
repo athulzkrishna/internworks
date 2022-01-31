@@ -21,34 +21,126 @@
                     <a routerLink="/about" routerLinkActive="active" style="text-decoration: underline;text-underline-offset: 10px;font-size:14px; color:#000000">About you</a>
                 </div>
 
+
             </div>
-            <div class="dummy">
+            <div class="row">
+                <div class="column">
+                    <div class="custom-text">
+                        Languages Known
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="custom-text">
+                        Proficiency
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngFor="let i of align;let index1 = index;">
+                <div class="column">
+                    <mat-form-field appearance="outline" [style.width.px]="327">
+                        <mat-label>Language</mat-label>
+                        <input [(ngModel)]="lang" name="lang" matInput placeholder="Language">
+
+                    </mat-form-field>
+                </div>
+                <div class="column">
+                    <mat-checkbox class="easy">Read</mat-checkbox>
+                    <mat-checkbox class="easy">Write</mat-checkbox>
+                    <mat-checkbox class="easy">Speak</mat-checkbox>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <button mat-stroked-button class="bttn" (click)="increase()">+ Add New</button>
+                    <button mat-stroked-button class="bttn" (click)="decrease()" *ngIf="iss">- Remove</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="custom-text">
+                        Extra Curricular Activities
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngFor="let i of align1;let index1 = index;">
+                <div class="column">
+                    <mat-form-field appearance="outline" [style.width.px]="327">
+                        <mat-label>Type of Activity</mat-label>
+                        <mat-select>
+                            <mat-option value="rAct">A</mat-option>
+                            <mat-option value="rBct">B</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+
+                <div class="column">
+                    <mat-form-field [style.width.px]="327" appearance="outline">
+                        <mat-label>Activity</mat-label>
+                        <input [(ngModel)]="role" name="role" matInput placeholder="Mention Your Activity" />
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <button mat-stroked-button class="bttn" (click)="increase1()">+ Add New</button>
+                    <button mat-stroked-button class="bttn" (click)="decrease1()" *ngIf="iss1">- Remove</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="custom-text">
+                        Legal Engagements
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="custom-text" style="color:#626973">
+                        Have you been engaged in any court proceedings ?
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="column">
+                    <mat-radio-group aria-label="Select an option">
+                        <mat-radio-button class="easy" value="1">Yes</mat-radio-button>
+                        <mat-radio-button class="easy" value="2">No</mat-radio-button>
+                    </mat-radio-group>
+
+                </div>
+            </div>
+
+
+            <div class=" dummy ">
                 <mat-form-field>
-                    <input [(ngModel)]="fname" name="fname" matInput placeholder="Father's Name" />
+                    <input [(ngModel)]="fname " name="fname " matInput placeholder="Father 's Name" />
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input [(ngModel)]="focc" name="focc" matInput placeholder="Father's Occupation" />
+                    <input [(ngModel)]="focc" name="focc" matInput placeholder="Father's Occupation " />
                 </mat-form-field>
 
 
                 <mat-form-field>
-                    <input [(ngModel)]="fdateofbirth" name="fdateofbirth" matInput [matDatepicker]="fpicker" placeholder="Father's DOB" />
+                    <input [(ngModel)]="fdateofbirth " name="fdateofbirth " matInput [matDatepicker]="fpicker " placeholder="Father 's DOB" />
                     <mat-datepicker-toggle matSuffix [for]="fpicker"> </mat-datepicker-toggle>
                     <mat-datepicker #fpicker> </mat-datepicker>
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input [(ngModel)]="mname" name="mname" matInput placeholder="Mother's Name" />
+                    <input [(ngModel)]="mname" name="mname" matInput placeholder="Mother's Name " />
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input [(ngModel)]="mocc" name="mocc" matInput placeholder="Mother's Occupation" />
+                    <input [(ngModel)]="mocc " name="mocc " matInput placeholder="Mother 's Occupation" />
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input [(ngModel)]="mdateofbirth" name="mdateofbirth" matInput [matDatepicker]="mpicker" placeholder="Mother's DOB" />
-                    <mat-datepicker-toggle matSuffix [for]="mpicker"> </mat-datepicker-toggle>
+                    <input [(ngModel)]="mdateofbirth" name="mdateofbirth" matInput [matDatepicker]="mpicker" placeholder="Mother's DOB " />
+                    <mat-datepicker-toggle matSuffix [for]="mpicker "> </mat-datepicker-toggle>
                     <mat-datepicker #mpicker> </mat-datepicker>
                 </mat-form-field>
 

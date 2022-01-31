@@ -77,7 +77,7 @@ form {
 .column {
     float: left;
     width: 35%;
-    padding: 10px;
+    padding-right: 10px;
     text-align: left;
     font-size: 14px;
 }
@@ -85,7 +85,7 @@ form {
 .column1 {
     float: left;
     width: 30%;
-    padding: 10px;
+    padding-right: 10px;
     text-align: left;
     font-size: 14px;
 }
