@@ -13,3 +13,14 @@ export interface just{
     val: string;
   }
 
+
+export interface Education {
+  _id: string;
+  school10: string;
+  percent10: string;
+  school12: string;
+  percent12: string;
+  clgug: string;
+  streamug:string;
+  percentug:string;
+}

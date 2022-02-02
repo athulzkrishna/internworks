@@ -25,6 +25,23 @@ router.post('/appointments', (req, res, next) => {
         .catch(error => res.send(error));
 });
 
+
+router.post('/edu', (req, res, next) => {
+    console.log(req.body);
+    const { school10, percent10, school12, percent12, clgug, streamug, percentug } = req.body;
+    if (!school10 || !percent10) {
+        return res.status(400).json({
+            message: ' Date, Name are required',
+        });
+    }
+
+    const payload = { school10, percent10, school12, percent12, clgug, streamug, percentug };
+    console.log(payload);
+    req.collection.insertOne(payload)
+        .then(result => res.json(result.ops[0]))
+        .catch(error => res.send(error));
+});
+
 router.delete('/appointments/:id', (req, res, next) => {
     const { id } = req.params;
     const _id = ObjectID(id);

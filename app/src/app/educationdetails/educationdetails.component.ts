@@ -1,3 +1,5 @@
+import { Education } from './../Appointment';
+//educationdetails
 import { Component, OnInit } from '@angular/core';
 import { Country, State, City }  from 'country-state-city';
 import { AppointmentService } from '../appointment.service';
@@ -13,18 +15,19 @@ export class EducationdetailsComponent implements OnInit {
 
   public successMsg: string;
   public errorMsg: string;
-  dateofbirth: string;
-  firstname: string;
-  lastname: string;
-  Mstatus: string;
+  school10: string;
+  percent10: string;
+  school12: string;
+  percent12: string;
+  clgug: string;
+  streamug:string;
+  percentug:string;
   addnew=0;
   addnew1=0;
-  align=[];
-  align1=[];
-  country:any;
-  state:any;
-  city:any;
+  mastersarray=[];
+  skillsarray=[];
   j: any;
+  j1: any;
   iss=false;
   iss1=false;
   disabled = false;
@@ -37,21 +40,25 @@ export class EducationdetailsComponent implements OnInit {
     this.increase();
     this.increase1();
   }
-  createAppointment() {
+  educationdetailsapi() {
     this.successMsg = '';
     this.errorMsg = '';
-    this.appointmentService.createAppointment(this.firstname,this.lastname,this.dateofbirth,this.Mstatus,this.align)
-      .subscribe((createdAppointment: Appointment) => {
-        this.dateofbirth = '';
-        this.firstname = '';
-        this.lastname = '';
-        this.Mstatus='';
-        this.align=[];
+    this.appointmentService.educationdetailsapi(this.school10,this.percent10,this.school12,this.percent12,this.clgug,this.streamug,this.percentug)
+      .subscribe((createdAppointment: Education) => {
+        this.school10 = '';
+        this.percent10 = '';
+        this.school12 = '';
+        this.percent12 = '';
+        this.clgug = '';
+        this.streamug = '';
+        this.percentug = '';
+        
         this.addnew=0;
+        this.addnew1=0;
         this.iss=false;
         this.increase();
-        const appointmentDate = new Date(createdAppointment.dateofbirth).toDateString();
-        this.successMsg = `Good things takes time ${appointmentDate}`;
+        
+        
       },
       (error: ErrorEvent) => {
         this.errorMsg = error.error.message;
@@ -66,8 +73,8 @@ export class EducationdetailsComponent implements OnInit {
             this.j = {disp:"",
             val:""
            };
-            this.align.push(this.j);
-            //console.log(this.align);
+            this.mastersarray.push(this.j);
+            //console.log(this.mastersarray);
             }
   decrease(){
             if(this.addnew>1)
@@ -82,7 +89,7 @@ export class EducationdetailsComponent implements OnInit {
             {
                 this.iss=false;
             }      
-            this.align.pop();
+            this.mastersarray.pop();
             }
     increase1(){
               this.addnew1=this.addnew1+1;
@@ -90,11 +97,11 @@ export class EducationdetailsComponent implements OnInit {
               {
                 this.iss1=true;
               }
-              this.j = {disp:"",
+              this.j1 = {disp:"",
               val:""
              };
-              this.align1.push(this.j);
-              //console.log(this.align);
+              this.skillsarray.push(this.j1);
+              //console.log(this.mastersarray);
               }
     decrease1(){
               if(this.addnew1>1)
@@ -109,16 +116,8 @@ export class EducationdetailsComponent implements OnInit {
               {
                   this.iss1=false;
               }      
-              this.align1.pop();
+              this.skillsarray.pop();
               }
-  toggle()
-            {
-              this.psr=!this.psr;
-            }
-  populateCountries(){
-    this.country=Country.getAllCountries();
-    this.state=State.getAllStates();
-    this.city=City.getAllCities();
-  }
+  
 
 }
