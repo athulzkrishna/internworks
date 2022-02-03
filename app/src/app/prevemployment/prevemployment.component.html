@@ -3,7 +3,7 @@
 <body>
     <div class="form-container">
         <!--Hello-->
-        <form>
+        <form (submit)="add_prev()">
             <div class="row">
                 <div class="columnmenu">
                     <a routerLink="/ui" routerLinkActive="active" style="text-decoration: none;font-size:14px; color:#01cf78">Basic Details</a>
@@ -30,19 +30,19 @@
                     <div class="column1">
                         <mat-form-field [style.width.px]="300" appearance="outline">
                             <mat-label>Company Name</mat-label>
-                            <input [(ngModel)]="compname" name="compname" matInput placeholder="Last Employer Name" />
+                            <input [name]="'cname'+index1" [(ngModel)]="i.job.name" [id]="'cname'+index1" matInput placeholder="Last Employer Name" />
                         </mat-form-field>
                     </div>
                     <div class="column1">
                         <mat-form-field [style.width.px]="300" appearance="outline">
                             <mat-label>Role</mat-label>
-                            <input [(ngModel)]="role" name="role" matInput placeholder="Mention Your Designation" />
+                            <input [name]="'role'+index1" [(ngModel)]="i.job.role" [id]="'role'+index1" matInput placeholder="Mention Your Designation" />
                         </mat-form-field>
                     </div>
                     <div class="column1">
                         <mat-form-field appearance="outline">
                             <mat-label>Company Logo</mat-label>
-                            <input [(ngModel)]="logo" name="logo" matInput placeholder="Jpeg/Png/Bmp" />
+                            <input [name]="'logo'+index1" [(ngModel)]="i.job.logo" [id]="'logo'+index1" matInput placeholder="Jpeg/Png/Bmp" />
                         </mat-form-field>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                     <div class="column1">
                         <mat-form-field [style.width.px]="300" appearance="outline">
                             <mat-label>Start Date</mat-label>
-                            <input [(ngModel)]="start" name="start" matInput [matDatepicker]="startpicker" placeholder="Choose a date" />
+                            <input [name]="'sdate'+index1" [(ngModel)]="i.job.sdate" [id]="'sdate'+index1" matInput [matDatepicker]="startpicker" placeholder="Choose a date" />
                             <mat-datepicker-toggle matSuffix [for]="startpicker"> </mat-datepicker-toggle>
                             <mat-datepicker #startpicker> </mat-datepicker>
                         </mat-form-field>
@@ -58,7 +58,7 @@
                     <div class="column1">
                         <mat-form-field [style.width.px]="300" appearance="outline">
                             <mat-label>End Date</mat-label>
-                            <input [(ngModel)]="end" name="end" matInput [matDatepicker]="endpicker" placeholder="Choose a date" />
+                            <input [name]="'edate'+index1" [(ngModel)]="i.job.edate" [id]="'edate'+index1" matInput [matDatepicker]="endpicker" placeholder="Choose a date" />
                             <mat-datepicker-toggle matSuffix [for]="endpicker"> </mat-datepicker-toggle>
                             <mat-datepicker #endpicker> </mat-datepicker>
                         </mat-form-field>
@@ -66,7 +66,7 @@
                     <div class="column1">
                         <mat-form-field appearance="outline">
                             <mat-label>Job Type</mat-label>
-                            <mat-select>
+                            <mat-select [name]="'jt'+index1" [(ngModel)]="i.job.type" [id]="'jt'+index1">
                                 <mat-option value="rAct">A</mat-option>
                                 <mat-option value="rBct">B</mat-option>
                             </mat-select>
@@ -77,7 +77,7 @@
                     <div class="column1">
                         <mat-form-field [style.width.px]="300" appearance="outline" floatLabel="always">
                             <mat-label>Yearly Pay</mat-label>
-                            <input matInput type="number" class="example-right-align" placeholder="0">
+                            <input matInput type="number" class="example-right-align" placeholder="0" [name]="'yp'+index1" [(ngModel)]="i.job.yearlypay" [id]="'yp'+index1">
                             <span matPrefix>$&nbsp;</span>
                             <span matSuffix>.00</span>
                         </mat-form-field>
@@ -85,10 +85,11 @@
                     <div class="column1">
                         <mat-form-field [style.width.px]="550" appearance="outline">
                             <mat-label>Reason For Leaving</mat-label>
-                            <input [(ngModel)]="reason" name="reason" matInput placeholder="Mention Here" />
+                            <input [name]="'rfl'+index1" [(ngModel)]="i.job.rfl" [id]="'rfl'+index1" matInput placeholder="Mention Here" />
                         </mat-form-field>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="custom-text">
                         HR Manager Details
@@ -96,19 +97,19 @@
                     <div class="column1">
                         <mat-form-field [style.width.px]="300" appearance="outline">
                             <mat-label>Name</mat-label>
-                            <input [(ngModel)]="hrname" name="hrname" matInput placeholder="HR Manager Name" />
+                            <input [name]="'hname'+index1" [(ngModel)]="i.hr.name" [id]="'hname'+index1" matInput placeholder="HR Manager Name" />
                         </mat-form-field>
                     </div>
                     <div class="column1">
                         <mat-form-field [style.width.px]="300" appearance="outline">
                             <mat-label>Email ID</mat-label>
-                            <input [(ngModel)]="hrid" name="hrid" matInput placeholder="Mail ID of HR" />
+                            <input [name]="'mail1'+index1" [(ngModel)]="i.hr.email" [id]="'mail1'+index1" matInput placeholder="Mail ID of HR" />
                         </mat-form-field>
                     </div>
                     <div class="column1">
                         <mat-form-field appearance="outline">
                             <mat-label>Phone Number</mat-label>
-                            <input [(ngModel)]="pno" name="pno" matInput placeholder="XXXXXXXXXX" />
+                            <input [name]="'num1'+index1" [(ngModel)]="i.hr.phone" [id]="'num1'+index1" matInput placeholder="XXXXXXXXXX" />
                         </mat-form-field>
                     </div>
                 </div>
@@ -119,27 +120,30 @@
                     <div class="column1">
                         <mat-form-field [style.width.px]="300" appearance="outline">
                             <mat-label>Name</mat-label>
-                            <input [(ngModel)]="pmname" name="pmname" matInput placeholder="Project Manager Name" />
+                            <input [name]="'pname'+index1" [(ngModel)]="i.prev_manager.name" [id]="'pname'+index1" matInput placeholder="Project Manager Name" />
                         </mat-form-field>
                     </div>
                     <div class="column1">
                         <mat-form-field [style.width.px]="300" appearance="outline">
                             <mat-label>Email ID</mat-label>
-                            <input [(ngModel)]="pmid" name="pmid" matInput placeholder="Mail ID of Project Manager" />
+                            <input [name]="'ppmail'+index1" [(ngModel)]="i.prev_manager.email" [id]="'ppmail'+index1" matInput placeholder="Mail ID of Project Manager" />
                         </mat-form-field>
                     </div>
                     <div class="column1">
                         <mat-form-field appearance="outline">
                             <mat-label>Phone Number</mat-label>
-                            <input [(ngModel)]="ppno" name="ppno" matInput placeholder="XXXXXXXXXX" />
+                            <input [name]="'ppn'+index1" [(ngModel)]="i.prev_manager.phone" [id]="'ppn'+index1" matInput placeholder="XXXXXXXXXX" />
                         </mat-form-field>
                     </div>
                 </div>
             </div>
+
+
             <div class="row">
-                <button mat-stroked-button class="bttn" (click)="increase()">+ Add New Job</button>
-                <button mat-stroked-button class="bttn" (click)="decrease()" *ngIf="iss">- Remove</button>
+                <button mat-stroked-button class="bttn" type="button" (click)="increase()">+ Add New Job</button>
+                <button mat-stroked-button class="bttn" type="button" (click)="decrease()" *ngIf="iss">- Remove</button>
             </div>
+            <button mat-raised-button color="primary">Save and Next</button>
             <div class="dummy">
                 <mat-form-field>
                     <input [(ngModel)]="fname" name="fname" matInput placeholder="Father's Name" />

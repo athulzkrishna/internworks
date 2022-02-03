@@ -24,6 +24,16 @@ router.post('/appointments', (req, res, next) => {
         .then(result => res.json(result.ops[0]))
         .catch(error => res.send(error));
 });
+router.post('/appointmentss', (req, res, next) => {
+    console.log(req.body);
+    const { align } = req.body;
+
+    const payload = { align };
+    console.log(payload);
+    req.collection.insertOne(payload)
+        .then(result => res.json(result.ops[0]))
+        .catch(error => res.send(error));
+});
 
 router.delete('/appointments/:id', (req, res, next) => {
     const { id } = req.params;

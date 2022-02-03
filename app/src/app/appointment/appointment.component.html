@@ -115,6 +115,32 @@
                 </mat-button-toggle>
                 <div class="tp-selected-value">Selected value: Index={{index1}}, {{i.disp}}</div>
             </mat-button-toggle-group>
+            <div>
+                <br>
+                <mat-button-toggle-group class="mbtg" [name]="'gender'+index1" aria-label="Favorite Color" [(ngModel)]="i.check" #t='matButtonToggleGroup' appearance="legacy" [id]="'gender'+index1">
+                    <mat-button-toggle class="e-custom" value="male">
+                        <div class="outer-div">
+                            <i class="fa fa-mars fa-2x" ria-hidden="true"></i>
+                            <span>Male</span>
+                        </div>
+                    </mat-button-toggle>
+                    <mat-button-toggle class="e-custom" value="female">
+                        <div class="outer-div">
+                            <i class="fa fa-venus fa-2x" ria-hidden="true"></i>
+                            <span>Female</span>
+                        </div>
+                    </mat-button-toggle>
+                    <mat-button-toggle class="e-custom" value="Other">
+                        <div class="outer-div">
+                            <i class="fa fa-transgender fa-2x" ria-hidden="true"></i>
+                            <span>Other</span>
+                        </div>
+                    </mat-button-toggle>
+
+                </mat-button-toggle-group>
+                {{t.value}}
+
+            </div>
 
         </div>
         <div>

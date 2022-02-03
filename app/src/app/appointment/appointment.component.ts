@@ -77,7 +77,8 @@ export class AppointmentComponent implements OnInit {
               this.iss=true;
             }
             this.j = {disp:"",
-            val:""
+            val:"",
+            check:""
            };
             this.align.push(this.j);
             //console.log(this.align);

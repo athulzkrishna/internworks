@@ -10,6 +10,7 @@ const cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var checkRouter = require('./routes/check');
 
 var app = express();
 
@@ -41,6 +42,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/', indexRouter);
+app.use('/see', checkRouter);
 app.use('/users', usersRouter);
 
 

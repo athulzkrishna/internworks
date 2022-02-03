@@ -4,12 +4,18 @@ export interface Appointment {
   lastname: string;
   dateofbirth: string;
   Mstatus:string;
-  align:Array<just>
+  align:Array<just>;
   
 
+}
+export interface Prev {
+  _id: string;
+  align:Array<just>;
 }
 export interface just{
     disp:string;
     val: string;
   }
+
+
 
