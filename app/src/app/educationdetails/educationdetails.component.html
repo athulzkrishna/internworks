@@ -122,13 +122,13 @@
                             Masters/ Post Graduation
                         </div>
                         <div class="column2">
-                            <mat-form-field [style.width.%]="88" appearance="outline">
+                            <mat-form-field [name]="'clgpg'+index1" [(ngModel)]="i.clgpg" [id]="'clgpg'+index1" [style.width.%]="88" appearance="outline">
                                 <mat-label>College/ University</mat-label>
-                                <input [(ngModel)]="clg" name="clg" matInput placeholder="Enter your College name" />
+                                <input [(ngModel)]="clg" name="clg" matInput placeholder="Enter your College name" /> {{i.clgpg}}
                             </mat-form-field>
                         </div>
                         <div class="column2">
-                            <mat-form-field [style.width.%]="88" appearance="outline">
+                            <mat-form-field [name]="'streampg'+index1" [(ngModel)]="i.streampg" [id]="'streampg'+index1" [style.width.%]="88" appearance="outline">
                                 <mat-label>Stream/ Subject</mat-label>
                                 <input [(ngModel)]="stream" name="stream" matInput placeholder="What were your Specialisation" />
                             </mat-form-field>
@@ -147,7 +147,7 @@
                                 </mat-form-field>
                             </div>
                             <div class="column3">
-                                <mat-form-field [style.width.%]="100" appearance="outline" floatLabel="always">
+                                <mat-form-field [name]="'percentpg'+index1" [(ngModel)]="i.percentpg" [id]="'percentpg'+index1"  [style.width.%]="100" appearance="outline" floatLabel="always">
                                     <mat-label>Percentage</mat-label>
                                     <input matInput type="number" class="example-right-align" placeholder="Your Aggregate" step=".01" />
                                     <span matSuffix>%</span>

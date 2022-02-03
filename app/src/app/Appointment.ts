@@ -12,6 +12,12 @@ export interface just{
     disp:string;
     val: string;
   }
+  
+export interface pgdetails{
+    clgpg:string;
+    streampg: string;
+    percentpg: string;
+  }
 
 
 export interface Education {
@@ -23,4 +29,5 @@ export interface Education {
   clgug: string;
   streamug:string;
   percentug:string;
+  mastersarray:Array<pgdetails>
 }

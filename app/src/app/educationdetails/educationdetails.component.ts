@@ -43,7 +43,7 @@ export class EducationdetailsComponent implements OnInit {
   educationdetailsapi() {
     this.successMsg = '';
     this.errorMsg = '';
-    this.appointmentService.educationdetailsapi(this.school10,this.percent10,this.school12,this.percent12,this.clgug,this.streamug,this.percentug)
+    this.appointmentService.educationdetailsapi(this.school10,this.percent10,this.school12,this.percent12,this.clgug,this.streamug,this.percentug,this.mastersarray)
       .subscribe((createdAppointment: Education) => {
         this.school10 = '';
         this.percent10 = '';
@@ -52,6 +52,7 @@ export class EducationdetailsComponent implements OnInit {
         this.clgug = '';
         this.streamug = '';
         this.percentug = '';
+        this.mastersarray=[];
         
         this.addnew=0;
         this.addnew1=0;
@@ -70,8 +71,9 @@ export class EducationdetailsComponent implements OnInit {
             {
               this.iss=true;
             }
-            this.j = {disp:"",
-            val:""
+            this.j = {clgpg:"",
+            streampg:"",
+            percentpg:""
            };
             this.mastersarray.push(this.j);
             //console.log(this.mastersarray);
