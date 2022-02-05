@@ -28,14 +28,10 @@ router.post('/appointments', (req, res, next) => {
 
 router.post('/edu', (req, res, next) => {
     console.log(req.body);
-    const { school10, percent10, school12, percent12, clgug, streamug, percentug, mastersarray } = req.body;
-    if (!school10 || !percent10) {
-        return res.status(400).json({
-            message: ' Date, Name are required',
-        });
-    }
+    const {  school10,year10, percent10, school12,  year12, percent12, clgug, streamug,yearug, percentug, mastersarray, skillsarray  } = req.body;
+    
 
-    const payload = { school10, percent10, school12, percent12, clgug, streamug, percentug, mastersarray };
+    const payload = {  school10,year10, percent10, school12,  year12, percent12, clgug, streamug,yearug, percentug, mastersarray, skillsarray };
     console.log(payload);
     req.collection.insertOne(payload)
         .then(result => res.json(result.ops[0]))

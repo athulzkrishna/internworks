@@ -22,6 +22,9 @@ export class EducationdetailsComponent implements OnInit {
   clgug: string;
   streamug:string;
   percentug:string;
+  year10:string;
+  year12:string;
+  yearug:string;
   addnew=0;
   addnew1=0;
   mastersarray=[];
@@ -43,21 +46,25 @@ export class EducationdetailsComponent implements OnInit {
   educationdetailsapi() {
     this.successMsg = '';
     this.errorMsg = '';
-    this.appointmentService.educationdetailsapi(this.school10,this.percent10,this.school12,this.percent12,this.clgug,this.streamug,this.percentug,this.mastersarray)
+    this.appointmentService.educationdetailsapi(this.school10, this.year10, this.percent10,this.school12,this.year12,this.percent12,this.clgug,this.streamug, this.yearug,this.percentug,this.mastersarray, this.skillsarray)
       .subscribe((createdAppointment: Education) => {
         this.school10 = '';
+        this.year10='';
         this.percent10 = '';
         this.school12 = '';
+        this.year12 = '';
         this.percent12 = '';
         this.clgug = '';
         this.streamug = '';
+        this.yearug = '';
         this.percentug = '';
         this.mastersarray=[];
-        
+        this.skillsarray=[];
         this.addnew=0;
         this.addnew1=0;
         this.iss=false;
         this.increase();
+        this.increase1();
         
         
       },
@@ -71,9 +78,14 @@ export class EducationdetailsComponent implements OnInit {
             {
               this.iss=true;
             }
-            this.j = {clgpg:"",
-            streampg:"",
-            percentpg:""
+            this.j = { 
+                mastersobj:{
+                    clgpg:"",
+                    streampg:"",
+                    yearpg:"",
+                    percentpg:0
+                }
+                
            };
             this.mastersarray.push(this.j);
             //console.log(this.mastersarray);
@@ -99,8 +111,12 @@ export class EducationdetailsComponent implements OnInit {
               {
                 this.iss1=true;
               }
-              this.j1 = {disp:"",
-              val:""
+              this.j1 = {
+                skillsobj:{
+                  skillname:"",
+                  skilltype:"",
+                  skillcerti:""
+                }
              };
               this.skillsarray.push(this.j1);
               //console.log(this.mastersarray);
