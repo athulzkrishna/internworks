@@ -82,6 +82,14 @@ form {
     font-size: 14px;
 }
 
+.column1 {
+    float: left;
+    width: 30%;
+    padding-right: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
 .error {
     background-color: #d84f4f;
     padding: 10px;
@@ -128,7 +136,7 @@ form {
     font-size: 12px;
 }
 
-mat-button-toggle {
+.mat-button-toggle {
     border: 1px solid #b0b4b9;
     border-radius: 4px;
     margin-left: 4px;

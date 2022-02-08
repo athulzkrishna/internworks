@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppointmentService } from '../appointment.service';
 import { Appointment } from '../Appointment';
 import { just } from '../Appointment';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-appointment',

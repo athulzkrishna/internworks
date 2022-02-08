@@ -37,3 +37,16 @@ export interface Education {
   mastersarray:Array<just>;
   skillsarray:Array<just>;
 }
+
+export interface Aboutyou {
+  _id: string;
+  langarr:Array<just>;
+  actarr:Array<just>;
+  staticc:Array<just>;
+  illness:string;
+  yeari:string;
+  remark:string;
+  phy:string;
+  ach:string;
+  legal:string;
+}

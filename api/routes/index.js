@@ -38,6 +38,17 @@ router.post('/edu', (req, res, next) => {
         .catch(error => res.send(error));
 });
 
+
+router.post('/abb', (req, res, next) => {
+    console.log(req.body);
+    const { langarr, actarr,staticc, illness, yeari, remark, phy, ach, legal} = req.body;
+    const payload = {langarr, actarr,staticc,illness, yeari, remark, phy, ach, legal };
+    console.log(payload);
+    req.collection.insertOne(payload)
+        .then(result => res.json(result.ops[0]))
+        .catch(error => res.send(error));
+});
+
 router.delete('/appointments/:id', (req, res, next) => {
     const { id } = req.params;
     const _id = ObjectID(id);

@@ -1,154 +1,210 @@
 <html>
+    <body>
+        <div class="form-container">
+            <!--Hello-->
+            <form (submit)="aboutyouapi()">
+                <div class="row">
+                    <div class="columnmenu">
+                        <a routerLink="/ui" routerLinkActive="active" style="text-decoration: none; font-size: 14px; color: #01cf78;">Basic Details</a>
+                    </div>
 
-<body>
-    <div class="form-container">
-        <!--Hello-->
-        <form>
-            <div class="row">
-                <div class="columnmenu">
-                    <a routerLink="/ui" routerLinkActive="active" style="text-decoration: none;font-size:14px; color:#01cf78">Basic Details</a>
-                </div>
+                    <div class="columnmenu">
+                        <a routerLink="/education" routerLinkActive="active" style="text-decoration: none; font-size: 14px; color: #01cf78;">Educational Details</a>
+                    </div>
 
-                <div class="columnmenu">
-                    <a routerLink="/education" routerLinkActive="active" style="text-decoration: none;font-size:14px; color:#01cf78">Educational Details</a>
-                </div>
+                    <div class="columnmenu">
+                        <a routerLink="/prev" routerLinkActive="active" style="text-decoration: none; font-size: 14px; color: #01cf78;">Previous Employment</a>
+                    </div>
 
-                <div class="columnmenu">
-                    <a routerLink="/prev" routerLinkActive="active" style="text-decoration: none;font-size:14px; color:#01cf78">Previous Employment</a>
-                </div>
-
-                <div class="columnmenu">
-                    <a routerLink="/about" routerLinkActive="active" style="text-decoration: underline;text-underline-offset: 10px;font-size:14px; color:#000000">About you</a>
-                </div>
-
-
-            </div>
-            <div class="row">
-                <div class="column">
-                    <div class="custom-text">
-                        Languages Known
+                    <div class="columnmenu">
+                        <a routerLink="/about" routerLinkActive="active" style="text-decoration: underline; text-underline-offset: 10px; font-size: 14px; color: #000000;">About you</a>
                     </div>
                 </div>
-                <div class="column">
-                    <div class="custom-text">
-                        Proficiency
+                <div class="row">
+                    <div class="column">
+                        <div class="custom-text">
+                            Languages Known
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="custom-text">
+                            Proficiency
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row" *ngFor="let i of align;let index1 = index;">
-                <div class="column">
-                    <mat-form-field appearance="outline" [style.width.px]="327">
-                        <mat-label>Language</mat-label>
-                        <input [(ngModel)]="lang" name="lang" matInput placeholder="Language">
+                <div class="row" *ngFor="let i of langarr;let index1 = index;">
+                    <div class="column">
+                        <mat-form-field appearance="outline" [style.width.px]="327">
+                            <mat-label>Language</mat-label>
+                            <input [name]="'lang'+index1" [(ngModel)]="i.langobj.lang" [id]="'lang'+index1" matInput placeholder="Language" />
+                        </mat-form-field>
+                    </div>
+                    <div class="column">
+                        <mat-checkbox class="easy" [name]="'read'+index1" [(ngModel)]="i.langobj.read" [id]="'read'+index1">Read</mat-checkbox>
+                        <mat-checkbox class="easy" [name]="'write'+index1" [(ngModel)]="i.langobj.write" [id]="'write'+index1">Write</mat-checkbox>
+                        <mat-checkbox class="easy" [name]="'speak'+index1" [(ngModel)]="i.langobj.speak" [id]="'speak'+index1"> Speak</mat-checkbox>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <button mat-stroked-button class="bttn" (click)="increase()">+ Add New</button>
+                        <button mat-stroked-button class="bttn" (click)="decrease()" *ngIf="iss">- Remove</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="custom-text">
+                            Extra Curricular Activities
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngFor="let i1 of actarr;let index2 = index;">
+                    <div class="column">
+                        <mat-form-field appearance="outline" [style.width.px]="327">
+                            <mat-label>Type of Activity</mat-label>
+                            <mat-select [name]="'acttype'+index2" [(ngModel)]="i1.activityobj.acttype" [id]="'acttype'+index2">
+                                <mat-option value="actA">A</mat-option>
+                                <mat-option value="actB">B</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
 
+                    <div class="column">
+                        <mat-form-field [style.width.px]="327" appearance="outline">
+                            <mat-label>Activity</mat-label>
+                            <input [name]="'act'+index1" [(ngModel)]="i1.activityobj.act" [id]="'act'+index2" matInput placeholder="Mention Your Activity" />
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <button mat-stroked-button class="bttn" (click)="increase1()">+ Add New</button>
+                        <button mat-stroked-button class="bttn" (click)="decrease1()" *ngIf="iss1">- Remove</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="custom-text">
+                            Legal Engagements
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="custom-text" style="color: #626973;">
+                            Have you been engaged in any court proceedings ?
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <mat-radio-group [(ngModel)]='legal' name='legal'  aria-label="Select an option">
+                            <mat-radio-button class="easy" value="yes">Yes</mat-radio-button>
+                            <mat-radio-button class="easy" value="no">No</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="custom-text">
+                        Health facts
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="custom-text" style="color: #626973;">
+                            Details of Prolonged or Serious Illness (If Any)
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column1">
+                        <mat-form-field [style.width.px]="300" appearance="outline">
+                            <mat-label>Name of the Illness</mat-label>
+                            <input name='illness' [(ngModel)]='illness'  matInput placeholder="Last Employer Name" />
+                        </mat-form-field>
+                    </div>
+                    <div class="column1">
+                        <mat-form-field [style.width.px]="300" appearance="outline">
+                            <mat-label>Since year</mat-label>
+                            <mat-select name='yeari' [(ngModel)]='yeari'>
+                                <mat-option value="rAct">A</mat-option>
+                                <mat-option value="rBct">B</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="column1">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Remarks</mat-label>
+                            <input name='remark' [(ngModel)]='remark' matInput placeholder="Remarks" />
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="custom-text" style="color: #626973;">
+                            Are you having any physical disability?
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <mat-radio-group  name='phy' [(ngModel)]='phy' aria-label="Select an option">
+                            <mat-radio-button class="easy" value="yes">Yes</mat-radio-button>
+                            <mat-radio-button class="easy" value="no">No</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="custom-text" style="color: #626973;">
+                            Achievements and Membership
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <mat-form-field [style.width.px]="300" appearance="outline">
+                            <mat-label>Describe in Particular</mat-label>
+                            <input name='ach' [(ngModel)]='ach'  matInput placeholder="Last Employer Name" />
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <button mat-raised-button color="primary">Save and Next</button>
+                <div class="row"></div>
+
+                <div class="dummy">
+                    <mat-form-field>
+                        <input [(ngModel)]="fname " name="fname " matInput placeholder="Father 's Name" />
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input [(ngModel)]="focc" name="focc" matInput placeholder="Father's Occupation " />
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input [(ngModel)]="fdateofbirth " name="fdateofbirth " matInput [matDatepicker]="fpicker " placeholder="Father 's DOB" />
+                        <mat-datepicker-toggle matSuffix [for]="fpicker"> </mat-datepicker-toggle>
+                        <mat-datepicker #fpicker> </mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input [(ngModel)]="mname" name="mname" matInput placeholder="Mother's Name " />
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input [(ngModel)]="mocc " name="mocc " matInput placeholder="Mother 's Occupation" />
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input [(ngModel)]="mdateofbirth" name="mdateofbirth" matInput [matDatepicker]="mpicker" placeholder="Mother's DOB " />
+                        <mat-datepicker-toggle matSuffix [for]="mpicker "> </mat-datepicker-toggle>
+                        <mat-datepicker #mpicker> </mat-datepicker>
                     </mat-form-field>
                 </div>
-                <div class="column">
-                    <mat-checkbox class="easy">Read</mat-checkbox>
-                    <mat-checkbox class="easy">Write</mat-checkbox>
-                    <mat-checkbox class="easy">Speak</mat-checkbox>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <button mat-stroked-button class="bttn" (click)="increase()">+ Add New</button>
-                    <button mat-stroked-button class="bttn" (click)="decrease()" *ngIf="iss">- Remove</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <div class="custom-text">
-                        Extra Curricular Activities
-                    </div>
-                </div>
-            </div>
-            <div class="row" *ngFor="let i of align1;let index1 = index;">
-                <div class="column">
-                    <mat-form-field appearance="outline" [style.width.px]="327">
-                        <mat-label>Type of Activity</mat-label>
-                        <mat-select>
-                            <mat-option value="rAct">A</mat-option>
-                            <mat-option value="rBct">B</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-
-
-                <div class="column">
-                    <mat-form-field [style.width.px]="327" appearance="outline">
-                        <mat-label>Activity</mat-label>
-                        <input [(ngModel)]="role" name="role" matInput placeholder="Mention Your Activity" />
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <button mat-stroked-button class="bttn" (click)="increase1()">+ Add New</button>
-                    <button mat-stroked-button class="bttn" (click)="decrease1()" *ngIf="iss1">- Remove</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <div class="custom-text">
-                        Legal Engagements
-                    </div>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="column">
-                    <div class="custom-text" style="color:#626973">
-                        Have you been engaged in any court proceedings ?
-                    </div>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="column">
-                    <mat-radio-group aria-label="Select an option">
-                        <mat-radio-button class="easy" value="1">Yes</mat-radio-button>
-                        <mat-radio-button class="easy" value="2">No</mat-radio-button>
-                    </mat-radio-group>
-
-                </div>
-            </div>
-
-
-            <div class=" dummy ">
-                <mat-form-field>
-                    <input [(ngModel)]="fname " name="fname " matInput placeholder="Father 's Name" />
-                </mat-form-field>
-
-                <mat-form-field>
-                    <input [(ngModel)]="focc" name="focc" matInput placeholder="Father's Occupation " />
-                </mat-form-field>
-
-
-                <mat-form-field>
-                    <input [(ngModel)]="fdateofbirth " name="fdateofbirth " matInput [matDatepicker]="fpicker " placeholder="Father 's DOB" />
-                    <mat-datepicker-toggle matSuffix [for]="fpicker"> </mat-datepicker-toggle>
-                    <mat-datepicker #fpicker> </mat-datepicker>
-                </mat-form-field>
-
-                <mat-form-field>
-                    <input [(ngModel)]="mname" name="mname" matInput placeholder="Mother's Name " />
-                </mat-form-field>
-
-                <mat-form-field>
-                    <input [(ngModel)]="mocc " name="mocc " matInput placeholder="Mother 's Occupation" />
-                </mat-form-field>
-
-                <mat-form-field>
-                    <input [(ngModel)]="mdateofbirth" name="mdateofbirth" matInput [matDatepicker]="mpicker" placeholder="Mother's DOB " />
-                    <mat-datepicker-toggle matSuffix [for]="mpicker "> </mat-datepicker-toggle>
-                    <mat-datepicker #mpicker> </mat-datepicker>
-                </mat-form-field>
-
-            </div>
-
-        </form>
-
-    </div>
-</body>
-
+            </form>
+        </div>
+    </body>
 </html>

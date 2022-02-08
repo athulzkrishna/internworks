@@ -4,8 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { Country, State, City }  from 'country-state-city';
 import { AppointmentService } from '../appointment.service';
 import { Appointment } from '../Appointment';
-
-
 @Component({
   selector: 'app-educationdetails',
   templateUrl: './educationdetails.component.html',
