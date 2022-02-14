@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Country, State, City }  from 'country-state-city';
 import { AppointmentService } from '../appointment.service';
 import { Appointment } from '../Appointment';
+import { basic } from '../Appointment';
 
 @Component({
   selector: 'app-ui',
@@ -44,6 +45,47 @@ export class UiComponent implements OnInit {
     disp:"Divorced",
     val:"Apart"
   }];
+  i={
+    fname:"",
+    lname:"",
+    gender:"",
+    mstatus:"",
+    dob:"",
+    bg:"",
+    aadhar:"",
+    pan:"",
+    passport:"",
+    passdate:"",
+    res:{
+      hno:"",
+      l1:"",
+      l2:"",
+      city:"",
+      state:"",
+      country:"",
+    },
+
+    per:{
+      hno:"",
+      l1:"",
+      l2:"",
+      city:"",
+      state:"",
+      country:"",
+    },
+    father:{
+      name:"",
+      occ:"",
+      dob:"",
+      bg:""
+          },
+    mother:{
+      name:"",
+      occ:"",
+      dob:"",
+      bg:""
+          }
+  };
 
   constructor(private appointmentService: AppointmentService) { }
 
@@ -67,6 +109,30 @@ export class UiComponent implements OnInit {
         this.increase();
         const appointmentDate = new Date(createdAppointment.dateofbirth).toDateString();
         this.successMsg = `Good things takes time ${appointmentDate}`;
+      },
+      (error: ErrorEvent) => {
+        this.errorMsg = error.error.message;
+      });
+  }
+  permanent_same_residential()
+  {
+    this.i.per.hno=this.i.res.hno;
+    this.i.per.l1=this.i.res.l1;
+    this.i.per.l2=this.i.res.l2;
+    this.i.per.state=this.i.res.state;
+    this.i.per.city=this.i.res.city;
+    this.i.per.country=this.i.res.country;
+
+
+
+  }
+  add_basic() {
+    if (this.psr==false){
+      this.permanent_same_residential();
+    }
+
+    this.appointmentService.addbasic(this.i)
+      .subscribe(() => { 
       },
       (error: ErrorEvent) => {
         this.errorMsg = error.error.message;
@@ -108,5 +174,6 @@ export class UiComponent implements OnInit {
     this.state=State.getAllStates();
     this.city=City.getAllCities();
   }
+
 
 }

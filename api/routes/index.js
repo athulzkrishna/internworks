@@ -10,19 +10,12 @@ router.get('/appointments', (req, res, next) => {
 });
 
 router.post('/appointments', (req, res, next) => {
-    console.log(req.body);
-    const { firstname, lastname, dateofbirth, Mstatus, align } = req.body;
-    if (!dateofbirth || !firstname || !lastname) {
-        return res.status(400).json({
-            message: ' Date, Name are required',
-        });
-    }
+    //console.log(req.body);
+    //const { firstname, lastname, dateofbirth, Mstatus, align } = req.body;
+    return res.status(400).json({
+        message: ' Dummy API',
+    });
 
-    const payload = { firstname, lastname, dateofbirth, Mstatus, align };
-    console.log(payload);
-    req.collection.insertOne(payload)
-        .then(result => res.json(result.ops[0]))
-        .catch(error => res.send(error));
 });
 router.post('/appointmentss', (req, res, next) => {
     console.log(req.body);
@@ -30,7 +23,7 @@ router.post('/appointmentss', (req, res, next) => {
 
     const payload = { align };
     console.log(payload);
-    req.collection.insertOne(payload)
+    req.collection.insertOne(req.body)
         .then(result => res.json(result.ops[0]))
         .catch(error => res.send(error));
 });

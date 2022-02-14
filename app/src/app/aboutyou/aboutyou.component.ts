@@ -1,60 +1,82 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, OnInit, NgModule } from '@angular/core';
 import { Country, State, City }  from 'country-state-city';
 import { AppointmentService } from '../appointment.service';
 import { Appointment } from '../Appointment';
+import { Aboutyou } from '../Appointment';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatLabel } from '@angular/material';
+import {MatTableDataSource} from '@angular/material';
+
+
 
 @Component({
   selector: 'app-aboutyou',
   templateUrl: './aboutyou.component.html',
   styleUrls: ['./aboutyou.component.css']
 })
+
+
 export class AboutyouComponent implements OnInit {
-  public successMsg: string;
-  public errorMsg: string;
-  dateofbirth: string;
-  firstname: string;
-  lastname: string;
-  Mstatus: string;
   addnew=0;
-  align=[];
   addnew1=0;
-  align1=[];
-  country:any;
-  state:any;
-  city:any;
+  langarr=[];
+  actarr=[];
+  others=[1];
+  
+  staticc=[];
   j: any;
+  j1: any;
+  j2: any;
   iss=false;
   iss1=false;
   disabled = false;
   checked = false;
-  psr=true;
+  illness: string;
+  yeari: string;
+  remark: string;
+  phy: string;
+  ach: string;
+  legal: string;
+  
   constructor(private appointmentService: AppointmentService) { }
 
   ngOnInit() {
     this.increase();
-    this.populateCountries();
     this.increase1();
+    this.staticfn();
   }
 
-  createAppointment() {
-    this.successMsg = '';
-    this.errorMsg = '';
-    this.appointmentService.createAppointment(this.firstname,this.lastname,this.dateofbirth,this.Mstatus,this.align)
-      .subscribe((createdAppointment: Appointment) => {
-        this.dateofbirth = '';
-        this.firstname = '';
-        this.lastname = '';
-        this.Mstatus='';
-        this.align=[];
+  aboutyouapi() {
+    this.appointmentService.aboutyouapi(this.langarr, this.actarr, this.staticc, this.illness, this.yeari, this.remark, this.phy, this.ach,this.legal)
+      .subscribe(() => {
+        this.langarr=[];
+        this.actarr=[];
+        this.staticc=[];
         this.addnew=0;
+        this.addnew1=0;
         this.iss=false;
+        this.iss1=false;
         this.increase();
-        const appointmentDate = new Date(createdAppointment.dateofbirth).toDateString();
-        this.successMsg = `Good things takes time ${appointmentDate}`;
+        this.increase1();
+        this.staticfn();
+        this.illness='';
+        this.yeari = '';
+        this.remark = '';
+        this.phy ='';
+        this.ach ='';
+        this.legal='';
       },
-      (error: ErrorEvent) => {
-        this.errorMsg = error.error.message;
-      });
+      );
+  }
+  staticfn(){
+    this.j2 = {
+      otherobj:{
+        legal:"",
+        illness:""
+    }
+  };
+  this.staticc.push(this.j2);
   }
   increase(){
             this.addnew=this.addnew+1;
@@ -62,10 +84,15 @@ export class AboutyouComponent implements OnInit {
             {
               this.iss=true;
             }
-            this.j = {disp:"",
-            val:""
+            this.j = {
+              langobj:{
+                lang:"",
+                read:"",
+                write:"",
+                speak:""
+            }
            };
-            this.align.push(this.j);
+            this.langarr.push(this.j);
             //console.log(this.align);
             }
   decrease(){
@@ -81,7 +108,7 @@ export class AboutyouComponent implements OnInit {
             {
                 this.iss=false;
             }      
-            this.align.pop();
+            this.langarr.pop();
             }
   increase1(){
               this.addnew1=this.addnew1+1;
@@ -89,10 +116,13 @@ export class AboutyouComponent implements OnInit {
               {
                 this.iss1=true;
               }
-              this.j = {disp:"",
-              val:""
+              this.j1 = {
+                activityobj:{
+                  acttype:"",
+                  act:""
+                }
              };
-              this.align1.push(this.j);
+              this.actarr.push(this.j1);
               //console.log(this.align);
               }
     decrease1(){
@@ -108,17 +138,8 @@ export class AboutyouComponent implements OnInit {
               {
                   this.iss1=false;
               }      
-              this.align1.pop();
+              this.actarr.pop();
               }
-  toggle()
-            {
-              this.psr=!this.psr;
-            }
-  populateCountries(){
-    this.country=Country.getAllCountries();
-    this.state=State.getAllStates();
-    this.city=City.getAllCities();
-  }
-
-
+  
 }
+
