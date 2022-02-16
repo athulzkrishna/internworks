@@ -210,30 +210,31 @@
                         </mat-form-field>
                          -->
                     </div>
-                    <div class="column1">
-                        <mat-button-toggle-group [style.width.%]="100" class="mbtg" name="skillassess" aria-label="SkillAssessment" #t="matButtonToggleGroup">
+                    <div class="column2">
+                        <mat-button-toggle-group [style.width.%]="88" class="mbtg" name="skillassess" aria-label="SkillAssessment" #t="matButtonToggleGroup">
                             <mat-label style="color:#757575">Skill Assessment</mat-label>
-                            <mat-button-toggle class="e-custom" value="male">
+
+                            <mat-button-toggle class="e-custom" value="1">
 
                                 <i class="fa fa-star" aria-hidden="true"></i>
 
                             </mat-button-toggle>
-                            <mat-button-toggle class="e-custom" value="female">
+                            <mat-button-toggle class="e-custom" value="2">
 
                                 <i class="fa fa-star" aria-hidden="true"></i>
 
                             </mat-button-toggle>
-                            <mat-button-toggle class="e-custom" value="Other">
+                            <mat-button-toggle class="e-custom" value="3">
 
                                 <i class="fa fa-star" aria-hidden="true"></i>
 
                             </mat-button-toggle>
-                            <mat-button-toggle class="e-custom" value="Other">
+                            <mat-button-toggle class="e-custom" value="4">
 
                                 <i class="fa fa-star" aria-hidden="true"></i>
 
                             </mat-button-toggle>
-                            <mat-button-toggle class="e-custom" value="Other">
+                            <mat-button-toggle class="e-custom" value="5">
 
                                 <i class="fa fa-star" aria-hidden="true"></i>
 
@@ -247,7 +248,7 @@
                 <button mat-stroked-button class="bttn" type="Button" (click)="increase1()">+ Add New Skill</button>
                 <button mat-stroked-button class="bttn" type="Button" (click)="decrease1()" *ngIf="iss1">- Remove</button>
             </div>
-            <button mat-raised-button color="primary">Save and Next</button>
+            <button mat-raised-button color="primary" type="submit"><a routerLink="/prev" style="text-decoration: none;color: white;">Save and Next</a></button>
             <div class="row"></div>
 
             <div class="dummy">

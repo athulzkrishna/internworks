@@ -35,7 +35,7 @@
             </div>
             <div class="row" *ngFor="let i of langarr;let index1 = index;">
                 <div class="column">
-                    <mat-form-field appearance="outline" [style.width.px]="327">
+                    <mat-form-field appearance="outline" [style.width.%]="92">
                         <mat-label>Language</mat-label>
                         <input [name]="'lang'+index1" [(ngModel)]="i.langobj.lang" [id]="'lang'+index1" matInput placeholder="Language" />
                     </mat-form-field>
@@ -61,7 +61,7 @@
             </div>
             <div class="row" *ngFor="let i1 of actarr;let index2 = index;">
                 <div class="column">
-                    <mat-form-field appearance="outline" [style.width.px]="327">
+                    <mat-form-field appearance="outline" [style.width.%]="92">
                         <mat-label>Type of Activity</mat-label>
                         <mat-select [name]="'acttype'+index2" [(ngModel)]="i1.activityobj.acttype" [id]="'acttype'+index2">
                             <mat-option value="actA">A</mat-option>
@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="column">
-                    <mat-form-field [style.width.px]="327" appearance="outline">
+                    <mat-form-field [style.width.%]="92" appearance="outline">
                         <mat-label>Activity</mat-label>
                         <input [name]="'act'+index1" [(ngModel)]="i1.activityobj.act" [id]="'act'+index2" matInput placeholder="Mention Your Activity" />
                     </mat-form-field>
@@ -121,13 +121,13 @@
             </div>
             <div class="row">
                 <div class="column1">
-                    <mat-form-field [style.width.px]="300" appearance="outline">
+                    <mat-form-field [style.width.%]="92" appearance="outline">
                         <mat-label>Name of the Illness</mat-label>
-                        <input name='illness' [(ngModel)]='illness' matInput placeholder="Last Employer Name" />
+                        <input name='illness' [(ngModel)]='illness' matInput placeholder="Mention the name of the illness" />
                     </mat-form-field>
                 </div>
                 <div class="column1">
-                    <mat-form-field [style.width.px]="300" appearance="outline">
+                    <mat-form-field [style.width.%]="92" appearance="outline">
                         <mat-label>Since year</mat-label>
                         <mat-select name='yeari' [(ngModel)]='yeari'>
                             <mat-option value="rAct">A</mat-option>
@@ -166,9 +166,9 @@
             </div>
             <div class="row">
                 <div class="column">
-                    <mat-form-field [style.width.px]="300" appearance="outline">
+                    <mat-form-field [style.width.%]="92" appearance="outline">
                         <mat-label>Describe in Particular</mat-label>
-                        <input name='ach' [(ngModel)]='ach' matInput placeholder="Last Employer Name" />
+                        <input name='ach' [(ngModel)]='ach' matInput placeholder="Describe the achievement" />
                     </mat-form-field>
                 </div>
             </div>

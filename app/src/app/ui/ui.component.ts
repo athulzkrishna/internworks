@@ -3,6 +3,8 @@ import { Country, State, City }  from 'country-state-city';
 import { AppointmentService } from '../appointment.service';
 import { Appointment } from '../Appointment';
 import { basic } from '../Appointment';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-ui',
@@ -10,7 +12,7 @@ import { basic } from '../Appointment';
   styleUrls: ['./ui.component.css']
 })
 export class UiComponent implements OnInit {
-
+  public router: Router;
   public successMsg: string;
   public errorMsg: string;
   dateofbirth: string;
@@ -93,6 +95,10 @@ export class UiComponent implements OnInit {
     this.increase();
     this.populateCountries();
   }
+  btnClick= function () {
+    this.router.navigate(['/education']);
+    return true;
+};
 
   createAppointment() {
     this.successMsg = '';

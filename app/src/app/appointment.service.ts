@@ -28,12 +28,12 @@ export class AppointmentService {
     return this.http.post<Appointment>(`${this.BASE_URL}/appointments`, { firstname, lastname, dateofbirth, Mstatus, align });
   }
   addprev(align:Array<just>) {
-    this.obj.prev={align};
+    this.obj.prev=align;
 
     return this.http.post<Prev>(`${this.BASE_URL}/appointments`, 'pushed addprev');
   }
   addbasic(align:{}) {
-    this.obj.basic={align};
+    this.obj.basic=align;
     return this.http.post<basic>(`${this.BASE_URL}/appointments`, { align });
   }
   addtodb(align:{}): Observable<basic> {
