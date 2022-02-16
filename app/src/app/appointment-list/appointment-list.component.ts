@@ -19,29 +19,8 @@ export class AppointmentListComponent implements OnInit {
   constructor(private appointmentService: AppointmentService) { }
 
   ngOnInit() {
-    this.appointmentService.getAppointments()
-      .subscribe((appointments: Appointment[]) => {
-        this.appointments = appointments;
-        this.loading = false;
-      },
-      (error: ErrorEvent) => {
-        this.errorMsg = error.error.message;
-        this.loading = false;
-      });
+    
   }
 
-  cancelAppointment(id: string) {
-    this.appointmentService.cancelAppointment(id)
-      .pipe(
-        mergeMap(() => this.appointmentService.getAppointments())
-      )
-      .subscribe((appointments: Appointment[]) => {
-        this.appointments = appointments;
-        this.successMsg = 'Successfully cancelled appointment';
-      },
-      (error: ErrorEvent) => {
-        this.errorMsg = error.error.message;
-      });
-  }
-
+  
 }

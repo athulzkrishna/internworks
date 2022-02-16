@@ -159,8 +159,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <button mat-stroked-button class="bttn" (click)="increase()">+ Add New</button>
-                    <button mat-stroked-button class="bttn" (click)="decrease()" *ngIf="iss">- Remove</button>
+                    <button mat-stroked-button class="bttn" type = "Button" (click)="increase()">+ Add New</button>
+                    <button mat-stroked-button class="bttn" type = "Button" (click)="decrease()" *ngIf="iss">- Remove</button>
                 </div>
                 <div class="row"></div>
                 <div *ngFor="let i1 of skillsarray;let index2 = index;">
@@ -243,8 +243,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <button mat-stroked-button class="bttn" (click)="increase1()">+ Add New Skill</button>
-                    <button mat-stroked-button class="bttn" (click)="decrease1()" *ngIf="iss1">- Remove</button>
+                    <button mat-stroked-button class="bttn" type = "Button" (click)="increase1()">+ Add New Skill</button>
+                    <button mat-stroked-button class="bttn" type = "Button" (click)="decrease1()" *ngIf="iss1">- Remove</button>
                 </div>
                 <button mat-raised-button color="primary">Save and Next</button>
                 <div class="row"></div>

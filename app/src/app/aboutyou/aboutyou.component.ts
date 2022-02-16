@@ -1,3 +1,4 @@
+import { databruh } from './../Appointment';
 import { Component, OnInit, NgModule } from '@angular/core';
 import { Country, State, City }  from 'country-state-city';
 import { AppointmentService } from '../appointment.service';
@@ -48,7 +49,7 @@ export class AboutyouComponent implements OnInit {
 
   aboutyouapi() {
     this.appointmentService.aboutyouapi(this.langarr, this.actarr, this.staticc, this.illness, this.yeari, this.remark, this.phy, this.ach,this.legal)
-      .subscribe((createdAppointment: Aboutyou) => {
+      .subscribe((createdAppointment: databruh) => {
         this.langarr=[];
         this.actarr=[];
         this.staticc=[];

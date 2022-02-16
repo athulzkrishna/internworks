@@ -13,6 +13,8 @@ export interface just{
     val: string;
   }
 
+
+
 /*  
 export interface pgdetails{
     clgpg:string;
@@ -50,3 +52,11 @@ export interface Aboutyou {
   ach:string;
   legal:string;
 }
+
+
+export interface databruh{
+  _id: string;
+  data:Array<Aboutyou>;
+}
+
+
